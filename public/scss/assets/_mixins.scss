@@ -1,0 +1,11 @@
+@mixin fullHD {
+  @media only screen and(min-width:1370px) {
+    @content;
+  }
+}
+
+@mixin toHD {
+  @media only screen and(min-width:1280px) {
+    @content;
+  }
+}

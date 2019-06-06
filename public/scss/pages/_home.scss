@@ -1,0 +1,226 @@
+.home {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  &__logo {
+    position: absolute;
+    top: 5%;
+    left: 15%;
+  }
+  &-sidemenu,
+  &-content {
+    height: 100%;
+  }
+  &-sidemenu {
+    position: relative;
+    width: 35%;
+    &__banner {
+      background-color: $back-color;
+      height: 55vh;
+    }
+    &__content {
+      padding: 35px 15%;
+      height: 45vh;
+      padding-top: 15%;
+      @include toHD {
+        padding-top: 10%;
+      }
+      @include fullHD {
+        padding-top: 10%;
+        padding-right: 25%;
+      }
+    }
+    &__title {
+      position: absolute;
+      left: 15%;
+      top: 15%;
+      font-weight: bold;
+      font-size: 90px;
+      line-height: 100px;
+      z-index: 999;
+      @include toHD {
+        font-size: 100px;
+        line-height: 120px;
+      }
+      @include fullHD {
+        font-size: 160px;
+        line-height: 185px;
+      }
+    }
+    &__text {
+      position: relative;
+      color: #888791;
+      font-size: 18px;
+      padding-top: 5%;
+      @include toHD {
+        font-size: 20px;
+      }
+      @include fullHD {
+        font-size: 26px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        background-color: $primary-color;
+        top: 0;
+        left: 0;
+      }
+    }
+    &__indicator {
+      position: absolute;
+      right: -10%;
+      bottom: -40%;
+      @include toHD {
+        bottom: -20%;
+      }
+      @include fullHD {
+        bottom: -30%;
+      }
+    }
+  }
+  &-content {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    &__screen {
+      position: relative;
+      left: -1px;
+      width: 101%;
+      height: 65vh;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 150% auto;
+      @media screen and(max-width:768px) {
+        background-size: 235% auto !important;
+      }
+      &.animate {
+        @media screen and(min-width:769px) {
+          -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+          -webkit-animation-iteration-count: 3;
+          animation-iteration-count: 3;
+          -webkit-animation-name: bg-closin;
+          animation-name: bg-closin;
+          -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+          -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+        }
+      }
+    }
+  }
+  &-panel {
+    position: absolute;
+    top: 45vh;
+    height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    background-color: rgba(220, 226, 240, 0.3);
+    @include fullHD {
+      height: 275px;
+    }
+    &__option {
+      position: relative;
+      z-index: 10;
+      // cursor: pointer;
+      max-width: 500px;
+      -webkit-transition: all 0.25s ease-in;
+      transition: all 0.25s ease-in;
+      height: inherit;
+      width: calc(100% / 3);
+      overflow: hidden;
+      // max-height: 200px;
+      // overflow-y: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -10;
+      }
+      &.active {
+        height: 300px;
+        width: calc(100% / 2.5);
+        &::before {
+          opacity: 0.8;
+          background: -webkit-gradient(linear, left top, left bottom, from(#d5120f), to(#f4711b));
+          background: linear-gradient(to bottom, #d5120f, #f4711b);
+        }
+        @include fullHD {
+          height: 400px;
+        }
+      }
+    }
+    &__brand {
+      // position: relative;
+      // top: 0;
+      height: 200px;
+      max-height: 200px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      @include fullHD {
+        height: 275px;
+        max-height: 275px;
+      }
+    }
+    &__img {
+      max-height: 30%;
+      width: auto;
+      max-width: 70%;
+    }
+    &__btn {
+      display: inline-block;
+      margin-left: 15%;
+      width: 70%;
+      font-size: 16px;
+      @include toHD {
+        font-size: 18px;
+        width: 60%;
+      }
+      @include fullHD {
+        font-size: 20px;
+        width: 55%;
+      }
+    }
+    &__target {
+      text-transform: capitalize;
+    }
+  }
+}
+
+//ANIMATIONS
+@-webkit-keyframes bg-closin {
+  0% {
+    background-size: 125% auto;
+  }
+  100% {
+    background-size: 150% auto;
+  }
+}
+@keyframes bg-closin {
+  0% {
+    background-size: 125% auto;
+  }
+  100% {
+    background-size: 150% auto;
+  }
+}

@@ -1,0 +1,89 @@
+.camera {
+  position: absolute;
+  top: 32vh;
+  bottom: 0;
+  right: 0;
+  left: 35vw;
+  width: 65vw;
+  z-index: 10;
+  &__frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vh;
+    height: 50vh;
+    background-color: #63414a;
+    border: 2px solid white;
+  }
+  &__player {
+    width: 100%;
+    height: 100%;
+  }
+  &__error {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    &.active {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+    &-text {
+      text-align: center;
+      max-width: 250px;
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+  &__img {
+    &.active {
+      opacity: 1;
+    }
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+  }
+  &__ctrl-box {
+    position: absolute;
+    right: 0;
+    bottom: 5vh;
+  }
+  &__btn {
+    display: block;
+    height: 80px;
+    width: 220px;
+    margin-right: 2rem;
+    font-weight: bold;
+    &-take-photo {
+      font-weight: 600;
+      background-color: transparent;
+      color: #e56252;
+      font-size: 20px;
+      border: 2px solid #e56252;
+      margin-bottom: 1rem;
+    }
+    &-go {
+      background: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55));
+      background: linear-gradient(to right, #e15550, #ef7f55);
+      font-size: 28px;
+      color: white;
+      border: none;
+    }
+  }
+}

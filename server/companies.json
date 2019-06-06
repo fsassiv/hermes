@@ -1,0 +1,59 @@
+[
+  {
+    "_id": 1,
+    "name": "DRUMMOND LTDA",
+    "alias": "Drummond",
+    "logo": "drummond.png",
+    "background": "panel-bg-1.png",
+    "dep": [
+      {
+        "_id": 1,
+        "name": "Recursos Humanos",
+        "logo": "logo.png"
+      },
+      {
+        "_id": 2,
+        "name": "Departamento Pessoal",
+        "logo": "logo.png"
+      }
+    ]
+  },
+  {
+    "_id": 2,
+    "name": "TEL",
+    "alias": "Tel",
+    "logo": "tel.png",
+    "background": "panel-bg-2.png",
+    "dep": [
+      {
+        "_id": 1,
+        "name": "Recursos Humanos",
+        "logo": "logo.png"
+      },
+      {
+        "_id": 2,
+        "name": "Departamento Pessoal",
+        "logo": "logo.png"
+      }
+    ]
+  },
+  {
+    "_id": 3,
+    "name": "WELCOME THE FUTURE",
+    "alias": "WTF",
+    "logo": "wtf.png",
+    "background": "panel-bg-3.png",
+    "dep": [
+      {
+        "_id": 1,
+        "name": "Recursos Humanos",
+        "logo": "logo.png"
+      },
+      {
+        "_id": 2,
+        "name": "Departamento Pessoal",
+        "logo": "logo.png"
+      }
+    ]
+  }
+]

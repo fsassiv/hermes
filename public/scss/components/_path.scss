@@ -1,0 +1,53 @@
+.path {
+  &.active {
+    opacity: 1;
+    -webkit-transform: translateY(30vh) translateX(30vw);
+    transform: translateY(30vh) translateX(30vw);
+  }
+  opacity: 0;
+  -webkit-transform: translateY(45vh) translateX(30vw);
+  transform: translateY(45vh) translateX(30vw);
+  position: absolute;
+  width: 40vw;
+  height: 50vh;
+  top: 2.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  &__block {
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: 45%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55));
+    background: linear-gradient(to right, #e15550, #ef7f55);
+  }
+  &__label {
+    font-weight: 600;
+    font-size: 22px;
+    @include toHD {
+      font-size: 25px;
+    }
+    @include fullHD {
+      font-size: 30px;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.indicator {
+  cursor: pointer;
+  color: $primary-color;
+  font-weight: bold;
+}
+
+.app {
+  &__input {
+    width: 40vw;
+    height: 15vh;
+    background-color: #edf0f8;
+    border: none;
+    border-left-width: 10px;
+    border-left-style: solid;
+    -o-border-image: linear-gradient(to bottom, #d5120f, #f4711b);
+    border-image: -webkit-gradient(linear, left top, left bottom, from(#d5120f), to(#f4711b));
+    border-image: linear-gradient(to bottom, #d5120f, #f4711b);
+    border-image-slice: 1;
+    color: #443b49;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 60px 50px;
+    text-transform: uppercase;
+  }
+  &__hide {
+    display: none !important;
+  }
+  &__back-btn {
+    cursor: pointer;
+    position: absolute;
+    height: 15%;
+    width: 15%;
+    bottom: 0%;
+    left: 0%;
+    z-index: 10;
+    color: $primary-color;
+    font-size: 22px;
+    text-align: right;
+    padding: 2%;
+    @include fullHD {
+      font-size: 26px;
+    }
+  }
+}
+
+// KEYBOARD STYLING
+.simple-keyboard {
+  position: absolute;
+  background-color: #edf0f8 !important;
+  z-index: 101;
+  bottom: 0;
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+.hg-button {
+  background-color: #ffffff !important;
+  & > span {
+    color: #6e6e6e !important;
+  }
+  &-enter,
+  &-lock,
+  &-bksp {
+    background: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55)) !important;
+    background: linear-gradient(to right, #e15550, #ef7f55) !important;
+    & > span {
+      color: white !important;
+      font-weight: bold;
+    }
+  }
+  &-tab {
+    display: none !important;
+  }
+}
+
+.is-poppins {
+  font-family: "Poppins", sans-serif;
+}
