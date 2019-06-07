@@ -30,23 +30,30 @@ export default {
     };
   },
   mounted() {
-    let sidePanelText = document.querySelector(".iden__sidepanel-text");
-    sidePanelText.innerHTML =
-      "Nos só vamos tirar uma foto para notificar aos anfitriões que você ja chegou";
-    //Check device media support
-    if ("mediaDevices" in navigator) {
-      //Start camera
-    } else {
-      //Camera feature not supported
-      this.supported = false;
-    }
-    this.imgElem = document.querySelector(".camera__img");
-    //Set camera element
-    this.camera = new Camera(document.querySelector("#player"));
+    this.$nextTick(() => {
+      let sidePanelText = document.querySelector(".iden__sidepanel-text");
+      sidePanelText.innerHTML =
+        "Nos só vamos tirar uma foto para notificar aos anfitriões que você ja chegou";
+      //Check device media support
+      if ("mediaDevices" in navigator) {
+        //Start camera
+      } else {
+        //Camera feature not supported
+        this.supported = false;
+      }
+      this.imgElem = document.querySelector(".camera__img");
+      //Set camera element
+      this.camera = new Camera(document.querySelector("#player"));
+    });
+
     //Auto init camera
     setTimeout(() => {
       this.camera.switch_on();
     }, 3000);
+  },
+  beforeDestroy() {
+    //Turn off the camera
+    this.camera.switch_off();
   },
   methods: {
     take_photo: function() {

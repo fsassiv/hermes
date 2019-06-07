@@ -18,12 +18,15 @@ export default {
     };
   },
   mounted() {
+    this.$nextTick(() => {
+      let sidePanelText = document.querySelector(".iden__sidepanel-text");
+      sidePanelText.innerHTML =
+        "Você possui um convite em QR Code ou algum ID de acesso para entrada?";
+    });
     setTimeout(() => {
       this.active = true;
     }, 0);
-    let sidePanelText = document.querySelector(".iden__sidepanel-text");
-    sidePanelText.innerHTML =
-      "Você possui um convite em QR Code ou algum ID de acesso para entrada?";
+
     //Load the selected panel data with the store
     this.data = this.$store.getters.getActivePanel;
   }

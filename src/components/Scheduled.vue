@@ -27,19 +27,21 @@ export default {
     };
   },
   mounted() {
-    let sidePanelText = document.querySelector(".iden__sidepanel-text");
-    sidePanelText.innerHTML =
-      "Por favor apresente seu QR ao leitor ou digite o ID ao lado";
+    this.$nextTick(() => {
+      let sidePanelText = document.querySelector(".iden__sidepanel-text");
+      sidePanelText.innerHTML =
+        "Por favor apresente seu QR ao leitor ou digite o ID ao lado";
+
+      this.hideElement(".iden__sidepanel-warning");
+      document.querySelector(".hg-button-enter").innerHTML = "Próximo";
+      document.querySelector(".hg-button-lock").innerHTML = "Voltar";
+      document.querySelector(".hg-button-bksp").innerHTML = "Limpar";
+    });
 
     this.keyboard = new Keyboard({
       onChange: input => this.onChange(input),
       onKeyPress: button => this.onKeyPress(button)
     });
-
-    this.hideElement(".iden__sidepanel-warning");
-    document.querySelector(".hg-button-enter").innerHTML = "Próximo";
-    document.querySelector(".hg-button-lock").innerHTML = "Voltar";
-    document.querySelector(".hg-button-bksp").innerHTML = "Limpar";
   },
   methods: {
     onKeyPress: function(button) {

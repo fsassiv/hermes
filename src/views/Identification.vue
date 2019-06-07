@@ -33,7 +33,7 @@ export default {
       this.$router.push("/");
     }
   },
-  mounted() {
+  created() {
     this.$store.commit("setCurrentPage", this.$options.name);
     this.backgroundImg = this.$store.getters.getPageBackground;
   }
