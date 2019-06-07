@@ -70,7 +70,8 @@ export default {
     };
   },
   created() {
-    fetch("http://35.240.68.142:3333/api/v1/companies")
+    // fetch("http://35.240.68.142:3333/api/v1/companies")
+    fetch("https://hermes-ws.herokuapp.com/api/v1/companies")
       .then(response => {
         return response;
       })

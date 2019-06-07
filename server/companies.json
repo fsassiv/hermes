@@ -55,5 +55,24 @@
         "logo": "logo.png"
       }
     ]
+  },
+  {
+    "_id": 4,
+    "name": "CATEDRA",
+    "alias": "CATEDRA",
+    "logo": "catedra.png",
+    "background": "panel-bg-4.jpg",
+    "dep": [
+      {
+        "_id": 1,
+        "name": "Recursos Humanos",
+        "logo": "logo.png"
+      },
+      {
+        "_id": 2,
+        "name": "Departamento Pessoal",
+        "logo": "logo.png"
+      }
+    ]
   }
 ]
