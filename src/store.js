@@ -37,6 +37,9 @@ export default new Vuex.Store({
         _id: "",
         path: ""
       }
+    },
+    company: {
+      _id: 0
     }
   },
   getters: {
@@ -48,6 +51,9 @@ export default new Vuex.Store({
     },
     getActivePanel: ({ activePanel }) => {
       return activePanel;
+    },
+    getCompany: ({ company }) => {
+      return company;
     }
   },
   mutations: {
@@ -59,6 +65,9 @@ export default new Vuex.Store({
     },
     setActivePanel: (state, panelData) => {
       state.activePanel = panelData;
+    },
+    setCompany: (state, company) => {
+      state.company = company;
     }
   },
   actions: {}

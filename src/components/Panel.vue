@@ -51,6 +51,8 @@ export default {
       if (this.clickCounter == 2) {
         this.$store.commit("setActivePanel", this.data);
         this.$router.push("/iden");
+        //Update store company
+        this.$store.commit("setCompany", this.data);
       }
     }
   },

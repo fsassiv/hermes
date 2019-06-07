@@ -1,0 +1,94 @@
+[
+  {
+    "_id": 1,
+    "deps": [
+      {
+        "_id": 1,
+        "name": "RH",
+        "label": "Recursos Humanos",
+        "icon": "icon.png"
+      },
+      {
+        "_id": 2,
+        "name": "DP",
+        "label": "Departamento Pessoal",
+        "icon": "icon.png"
+      },
+      {
+        "_id": 3,
+        "name": "Suprimentos",
+        "label": "Suprimentos",
+        "icon": "icon.png"
+      },
+      {
+        "_id": 4,
+        "name": "Financeiro",
+        "label": "Financeiro",
+        "icon": "icon.png"
+      }
+    ]
+  },
+  {
+    "_id": 2,
+    "deps": [
+      {
+        "_id": 1,
+        "name": "RH",
+        "label": "Recursos Humanos",
+        "icon": "icon.png"
+      },
+      {
+        "_id": 2,
+        "name": "Suprimentos",
+        "label": "Suprimentos",
+        "icon": "icon.png"
+      },
+      {
+        "_id": 3,
+        "name": "Financeiro",
+        "label": "Financeiro",
+        "icon": "icon.png"
+      }
+    ]
+  },
+  {
+    "_id": 3,
+    "deps": [
+      {
+        "_id": 1,
+        "name": "RH",
+        "label": "Recursos Humanos",
+        "icon": "icon.png"
+      },
+      {
+        "_id": 2,
+        "name": "DP",
+        "label": "Departamento Pessoal",
+        "icon": "icon.png"
+      },
+      {
+        "_id": 3,
+        "name": "Suprimentos",
+        "label": "Suprimentos",
+        "icon": "icon.png"
+      },
+      {
+        "_id": 4,
+        "name": "Financeiro",
+        "label": "Financeiro",
+        "icon": "icon.png"
+      }
+    ]
+  },
+  {
+    "_id": 4,
+    "deps": [
+      {
+        "_id": 1,
+        "name": "RH",
+        "label": "Recursos Humanos",
+        "icon": "icon.png"
+      }
+    ]
+  }
+]

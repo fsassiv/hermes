@@ -77,3 +77,41 @@
 .is-poppins {
   font-family: "Poppins", sans-serif;
 }
+
+.dep {
+  position: absolute;
+  left: 30vw;
+  bottom: 0;
+  height: 68vh;
+  width: 70vw;
+  &__carousel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    // -webkit-transform: translateY(-50%);
+    // transform: translateY(-50%);
+  }
+  &__item {
+    background-color: #edf0f8;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    width: 200px;
+    height: 300px;
+    padding: 20px;
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+    &-label {
+      color: #443b49;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 25px;
+    }
+  }
+}

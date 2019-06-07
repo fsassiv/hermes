@@ -43,6 +43,16 @@ const NonScheduled = resolve => {
   );
 };
 
+const Departments = resolve => {
+  require.ensure(
+    ["./components/Departments.vue"],
+    () => {
+      resolve(require("./components/Departments.vue"));
+    },
+    "departments"
+  );
+};
+
 const Camera = resolve => {
   require.ensure(
     ["./components/Camera.vue"],
@@ -71,6 +81,7 @@ export default new Router({
         { path: "", name: "path", component: Path },
         { path: "scheduled", component: Scheduled },
         { path: "nonscheduled", component: NonScheduled },
+        { path: "departments", component: Departments },
         { path: "camera", component: Camera }
       ]
     },
