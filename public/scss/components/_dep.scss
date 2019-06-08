@@ -1,0 +1,93 @@
+.dep {
+  position: absolute;
+  left: 30vw;
+  bottom: 0;
+  height: 68vh;
+  width: 70vw;
+  &__carousel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  &__item {
+    background-color: #edf0f8;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    width: 250px;
+    max-width: 250px;
+    height: 300px;
+    padding: 20px;
+    -webkit-transition: border 0.5s ease-in-out;
+    transition: border 0.5s ease-in-out;
+    border: 2px solid transparent;
+    border-bottom-width: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    &.active {
+      border-color: #e76852;
+    }
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+    &-label {
+      color: #443b49;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 25px;
+    }
+  }
+
+  &__ctrls {
+    &-box {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 25vw;
+      height: 100px;
+    }
+    &-text {
+      font-size: 22px;
+      font-weight: 600;
+      background: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55));
+      background: linear-gradient(to right, #e15550, #ef7f55);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    &-btn {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55));
+      background: linear-gradient(to right, #e15550, #ef7f55);
+      color: white;
+      font-weight: 600;
+      font-size: 26px;
+      width: 90%;
+      height: 60px;
+      border: none;
+      opacity: 0;
+      -webkit-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}

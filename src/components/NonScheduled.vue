@@ -13,14 +13,23 @@
         v-for="dep in company[0].deps"
         :data-index="dep._id"
         :data-name="dep.name"
+        :data-label="dep.label"
         :key="dep._id"
-        :class="{'active':activeIndex==dep._id}"
+        :class="{'active':selectedDep.index==dep._id}"
         @slide-click="handleSlideClick"
       >
         <Logo/>
         <p class="dep__item-label">{{dep.label}}</p>
       </Slide>
     </Carousel>
+    <div class="dep__ctrls-box">
+      <p class="dep__ctrls-text" v-if="selectedDep==''">Selecione um setor</p>
+      <button
+        class="dep__ctrls-btn"
+        @click="handleGoClick"
+        :class="{'active':selectedDep!=''}"
+      >Prosseguir</button>
+    </div>
   </div>
 </template>
 <script>
@@ -31,7 +40,8 @@ export default {
   data() {
     return {
       company: [],
-      activeIndex: 0
+      activeIndex: 0,
+      selectedDep: ""
     };
   },
   created() {
@@ -58,7 +68,12 @@ export default {
   },
   methods: {
     handleSlideClick: function(dataset) {
-      this.activeIndex = dataset.index;
+      this.selectedDep = dataset;
+    },
+    handleGoClick: function(event) {
+      if (this.selectedDep == "") return null;
+      //Apply logic
+      this.$router.push("newguest");
     }
   },
   components: {
