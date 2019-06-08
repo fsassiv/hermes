@@ -13,7 +13,13 @@
     border-left-width: 10px;
     border-left-style: solid;
     -o-border-image: linear-gradient(to bottom, #d5120f, #f4711b);
-    border-image: -webkit-gradient(linear, left top, left bottom, from(#d5120f), to(#f4711b));
+    border-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#d5120f),
+      to(#f4711b)
+    );
     border-image: linear-gradient(to bottom, #d5120f, #f4711b);
     border-image-slice: 1;
     color: #443b49;
@@ -62,7 +68,13 @@
   &-enter,
   &-lock,
   &-bksp {
-    background: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55)) !important;
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#e15550),
+      to(#ef7f55)
+    ) !important;
     background: linear-gradient(to right, #e15550, #ef7f55) !important;
     & > span {
       color: white !important;
@@ -93,17 +105,24 @@
     top: 0;
     width: 100%;
     max-width: 100%;
-    // -webkit-transform: translateY(-50%);
-    // transform: translateY(-50%);
   }
   &__item {
     background-color: #edf0f8;
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    min-width: 200px;
     width: 200px;
+    max-width: 200px;
     height: 300px;
     padding: 20px;
+    transition: border 0.5s ease-in-out;
+    border: 0.5rem solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    &.active {
+      border-color: #f4711b;
+    }
     &:not(:first-child) {
       margin-left: 1rem;
     }
