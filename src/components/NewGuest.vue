@@ -4,20 +4,25 @@
       <input
         type="text"
         id="new-guest__name"
-        class="new-guest__name app__input"
+        class="input new-guest__name app__input"
         readonly="true"
-        @click="clickInput"
+        @click="inputClick"
+        v-model="inputData"
+        placeholder="Digite seu nome"
       >
       <textarea
         id="new-guest__description"
         class="new-guest__description app__textarea"
         readonly="true"
-        @click="clickTextarea"
+        @click="textareaClick"
+        v-model="textareaData"
+        placeholder="Digite o motivo da visita"
       ></textarea>
     </form>
     <div
+      id="new-guest__keyboard"
       class="new-guest__keyboard simple-keyboard hg-theme-default hg-layout-default"
-      :class="{'active':keyboard_name_status||keyboard_description_status}"
+      :class="{'active':keyboardStatus}"
     ></div>
   </div>
 </template>
@@ -29,11 +34,17 @@ export default {
   name: "newguest",
   data() {
     return {
-      keyboard_name: {},
-      keyboard_description: {},
-      keyboard_name_status: false,
-      keyboard_description_status: false
+      keyboard: {},
+      keyboardStatus: false,
+      currentInput: "",
+      inputData: "",
+      textareaData: ""
     };
+  },
+  created() {
+    this.currentInput = "";
+    this.inputData = "";
+    this.textareaData = "";
   },
   mounted() {
     this.$nextTick(() => {
@@ -41,26 +52,76 @@ export default {
       sidePanelText.innerHTML =
         "Por favor se identifique ao lado, preencha com seu nome e objetivo";
       this.hideElement(".iden__sidepanel-warning");
+      //Alter keyboard labels
       document.querySelector(".hg-button-enter").innerHTML = "Próximo";
       document.querySelector(".hg-button-lock").innerHTML = "Voltar";
       document.querySelector(".hg-button-bksp").innerHTML = "Limpar";
     });
 
     //Asign the keyboard
-    this.keyboard_name = new Keyboard();
-    this.keyboard_description = new Keyboard();
+
+    this.keyboard = new Keyboard({
+      onChange: input => this.onChange(input),
+      onKeyPress: button => this.onKeyPress(button)
+    });
   },
   methods: {
-    clickInput: function() {
-      this.keyboard_name_status = true;
-      this.keyboard_description_status = false;
+    activeKeyboard: function() {
+      this.keyboardStatus = true;
     },
-    clickTextarea: function() {
-      this.keyboard_name_status = false;
-      this.keyboard_description_status = true;
+    inputClick: function(input) {
+      this.activeKeyboard();
+      this.currentInput = input.target.id;
+      this.inputData = "";
+      this.keyboard.setInput(this.inputData);
+    },
+    textareaClick: function(input) {
+      this.activeKeyboard();
+      this.currentInput = input.target.id;
+      this.textareaData = "";
+      this.keyboard.setInput(this.textareaData);
     },
     handleSubmit: function() {
       console.log("Submited");
+    },
+    //Keyboard events
+    onKeyPress: function(button) {
+      if (button == "{lock}") {
+        this.keyboardStatus = false;
+        this.inputData = "";
+        this.$router.go(-1);
+      }
+      if (button == "{enter}") {
+        this.handleSubmit();
+        if (this.inputData != "" && this.textareaData != "") {
+          this.$router.push("camera");
+        }
+      }
+      //workarount backspace button
+      if (button == "{bksp}") {
+        if (this.currentInput == "new-guest__name") {
+          this.inputData = "";
+          this.keyboard.setInput(this.inputData);
+        } else {
+          this.textareaData = "";
+          this.keyboard.setInput(this.textareaData);
+        }
+      }
+    },
+    onChange: function(input) {
+      let lastChar = input.slice(-1);
+      //Check the current input
+      if (this.currentInput == "new-guest__name") {
+        // this.inputData = input;
+        this.inputData += lastChar;
+        this.keyboard.setInput(this.inputData);
+      } else {
+        // this.textareaData = input;
+        this.textareaData += lastChar;
+        this.keyboard.setInput(this.textareaData);
+      }
+      console.log("Input: " + this.inputData);
+      console.log("Textarea: " + this.textareaData);
     }
   }
 };

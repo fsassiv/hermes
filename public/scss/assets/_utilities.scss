@@ -13,8 +13,14 @@
     border-left-width: 10px;
     border-left-style: solid;
     -o-border-image: linear-gradient(to bottom, #e15550, #ef7f55);
-       border-image: -webkit-gradient(linear, left top, left bottom, from(#e15550), to(#ef7f55));
-       border-image: linear-gradient(to bottom, #e15550, #ef7f55);
+    border-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#e15550),
+      to(#ef7f55)
+    );
+    border-image: linear-gradient(to bottom, #e15550, #ef7f55);
     border-image-slice: 1;
     color: #443b49;
     font-size: 20px;
@@ -30,8 +36,14 @@
     border-left-width: 10px;
     border-left-style: solid;
     -o-border-image: linear-gradient(to bottom, #e15550, #ef7f55);
-       border-image: -webkit-gradient(linear, left top, left bottom, from(#e15550), to(#ef7f55));
-       border-image: linear-gradient(to bottom, #e15550, #ef7f55);
+    border-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#e15550),
+      to(#ef7f55)
+    );
+    border-image: linear-gradient(to bottom, #e15550, #ef7f55);
     border-image-slice: 1;
     color: #443b49;
     font-size: 20px;
@@ -66,9 +78,9 @@
   background-color: #edf0f8 !important;
   z-index: 101;
   bottom: 0;
-  display: none;
+  display: none !important;
   &.active {
-    display: block;
+    display: block !important;
   }
 }
 .hg-button {
@@ -79,7 +91,13 @@
   &-enter,
   &-lock,
   &-bksp {
-    background: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55)) !important;
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#e15550),
+      to(#ef7f55)
+    ) !important;
     background: linear-gradient(to right, #e15550, #ef7f55) !important;
     & > span {
       color: white !important;
