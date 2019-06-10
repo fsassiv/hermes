@@ -47,11 +47,18 @@
       </div>
     </aside>
     <main class="home-content">
-      <div class="home-content__screen animate" :style="{backgroundImage:backgroundImg}">
+      <div class="home-content__screen">
+        <div
+          class="home-content__screen-animation animate"
+          :style="{backgroundImage:backgroundImg}"
+        ></div>
         <!-- OPTIONS -->
-        <div class="home-panel">
+        <!-- <div class="home-panel">
           <app-panel @loadPanel="loadPanel" v-for="panel in panels" :key="panel._id" :data="panel"></app-panel>
-        </div>
+        </div>-->
+      </div>
+      <div class="home-panel">
+        <app-panel @loadPanel="loadPanel" v-for="panel in panels" :key="panel._id" :data="panel"></app-panel>
       </div>
     </main>
   </div>

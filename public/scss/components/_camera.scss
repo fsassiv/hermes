@@ -14,6 +14,10 @@
     height: 50vh;
     background-color: #63414a;
     border: 2px solid white;
+    @include toHD {
+      width: 60vh;
+      height: 60vh;
+    }
   }
   &__player {
     width: 100%;
@@ -69,19 +73,21 @@
     height: 80px;
     width: 220px;
     margin-right: 2rem;
-    font-weight: bold;
+    @include toHD {
+      width: 350px;
+    }
     &-take-photo {
       font-weight: 600;
       background-color: transparent;
       color: #e56252;
-      font-size: 20px;
+      font-size: 18px;
       border: 2px solid #e56252;
       margin-bottom: 1rem;
     }
     &-go {
       background: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55));
       background: linear-gradient(to right, #e15550, #ef7f55);
-      font-size: 28px;
+      font-size: 22px;
       color: white;
       border: none;
     }

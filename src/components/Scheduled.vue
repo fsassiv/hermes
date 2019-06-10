@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <input
-      class="input iden__input app__input"
+      class="input iden__input app__input app__input-default"
       @focus="keyboardStatus=true"
       placeholder="Digite aqui o seu ID..."
       v-model="inputData"

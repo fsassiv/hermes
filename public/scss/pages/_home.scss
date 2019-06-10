@@ -18,6 +18,7 @@
   &-sidemenu {
     position: relative;
     width: 35%;
+    z-index: 999;
     &__banner {
       background-color: $back-color;
       height: 55vh;
@@ -95,24 +96,29 @@
       left: -1px;
       width: 101%;
       height: 65vh;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 150% auto;
-      @media screen and(max-width:768px) {
-        background-size: 235% auto !important;
-      }
-      &.animate {
-        @media screen and(min-width:769px) {
-          -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-          -webkit-animation-iteration-count: 3;
-          animation-iteration-count: 3;
-          -webkit-animation-name: bg-closin;
-          animation-name: bg-closin;
-          -webkit-animation-fill-mode: backwards;
-          animation-fill-mode: backwards;
-          -webkit-animation-duration: 10s;
-          animation-duration: 10s;
+      overflow: hidden;
+      &-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        &.animate {
+          @media screen and(min-width:769px) {
+            -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+            -webkit-animation-iteration-count: 3;
+            animation-iteration-count: 3;
+            -webkit-animation-name: bg-closin;
+            animation-name: bg-closin;
+            -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards;
+            -webkit-animation-duration: 10s;
+            animation-duration: 10s;
+          }
         }
       }
     }
@@ -124,8 +130,10 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 100%;
+    width: 65vw;
     background-color: rgba(220, 226, 240, 0.3);
+    -webkit-transform: translateX(-1px);
+    transform: translateX(-1px);
     @include fullHD {
       height: 275px;
     }
@@ -209,18 +217,34 @@
 
 //ANIMATIONS
 @-webkit-keyframes bg-closin {
+  // 0% {
+  //   background-size: 125% auto;
+  // }
+  // 100% {
+  //   background-size: 150% auto;
+  // }
   0% {
-    background-size: 125% auto;
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
   100% {
-    background-size: 150% auto;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
   }
 }
 @keyframes bg-closin {
+  // 0% {
+  //   background-size: 125% auto;
+  // }
+  // 100% {
+  //   background-size: 150% auto;
+  // }
   0% {
-    background-size: 125% auto;
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
   100% {
-    background-size: 150% auto;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
   }
 }

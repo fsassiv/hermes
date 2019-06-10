@@ -5,24 +5,7 @@
 }
 
 .app {
-  &__input {
-    width: 40vw;
-    height: 15vh;
-    background-color: #edf0f8;
-    border: none;
-    border-left-width: 10px;
-    border-left-style: solid;
-    -o-border-image: linear-gradient(to bottom, #e15550, #ef7f55);
-    border-image: -webkit-gradient(linear, left top, left bottom, from(#e15550), to(#ef7f55));
-    border-image: linear-gradient(to bottom, #e15550, #ef7f55);
-    border-image-slice: 1;
-    color: #443b49;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 60px 50px;
-    text-transform: uppercase;
-  }
-  &__textarea {
+  &__input-default {
     width: 40vw;
     height: 20vh;
     background-color: #edf0f8;
@@ -36,8 +19,19 @@
     color: #443b49;
     font-size: 20px;
     font-weight: bold;
-    padding: 60px 50px;
+    padding: 20px 50px;
     text-transform: uppercase;
+    overflow: auto;
+  }
+  &__input {
+    height: 15vh;
+
+    @include toHD {
+    }
+  }
+  &__textarea {
+    padding-top: 30px;
+    height: 16vh;
   }
   &__hide {
     display: none !important;
@@ -54,7 +48,11 @@
     font-size: 22px;
     text-align: right;
     padding: 2%;
+    @include toHD {
+      width: 14%;
+    }
     @include fullHD {
+      width: 13%;
       font-size: 26px;
     }
   }
@@ -67,6 +65,14 @@
   z-index: 101;
   bottom: 0;
   display: none !important;
+  max-height: 25vh;
+  @include toHD {
+    max-height: 35vh;
+  }
+  @include fullHD {
+    -webkit-transform: scaleY(1.25) translateY(-20px) translateX(-20px);
+    transform: scaleY(1.25) translateY(-20px) translateX(-20px);
+  }
   &.active {
     display: block !important;
   }

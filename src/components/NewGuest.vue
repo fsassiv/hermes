@@ -4,7 +4,7 @@
       <input
         type="text"
         id="new-guest__name"
-        class="input new-guest__name app__input"
+        class="input new-guest__name app__input app__input-default"
         readonly="true"
         @click="inputClick"
         v-model="inputData"
@@ -12,7 +12,7 @@
       >
       <textarea
         id="new-guest__description"
-        class="new-guest__description app__textarea"
+        class="new-guest__description app__textarea app__input-default"
         readonly="true"
         @click="textareaClick"
         v-model="textareaData"
