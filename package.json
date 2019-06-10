@@ -39,6 +39,7 @@
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
+    "sw-precache-webpack-plugin": "^0.11.5",
     "vue-loader": "^13.0.5",
     "vue-svg-loader": "^0.12.0",
     "vue-template-compiler": "^2.4.4",
