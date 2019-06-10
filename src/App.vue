@@ -7,15 +7,7 @@
 </template>
 <script>
 import { async } from "q";
-export default {
-  mounted() {
-    // if (!document.fullscreenElement) {
-    //   document.body.requestFullscreen().catch(err => {
-    //     console.error(err);
-    //   });
-    // }
-  }
-};
+export default {};
 </script>
 <style>
 .slide-leave-active {

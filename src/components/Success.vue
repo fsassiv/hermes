@@ -22,7 +22,10 @@ export default {
   },
   methods: {
     restart: function() {
-      this.active = true;
+      setTimeout(() => {
+        this.active = true;
+      }, 100);
+
       setTimeout(() => {
         this.$router.go("/");
       }, 6000);
