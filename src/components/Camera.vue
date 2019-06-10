@@ -65,7 +65,9 @@ export default {
         this.imgElem.classList.remove("active");
       }
     },
-    handleClick: function() {}
+    handleClick: function() {
+      this.$router.push("success");
+    }
   }
 };
 </script>

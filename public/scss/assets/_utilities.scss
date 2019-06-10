@@ -13,13 +13,7 @@
     border-left-width: 10px;
     border-left-style: solid;
     -o-border-image: linear-gradient(to bottom, #e15550, #ef7f55);
-    border-image: -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(#e15550),
-      to(#ef7f55)
-    );
+    border-image: -webkit-gradient(linear, left top, left bottom, from(#e15550), to(#ef7f55));
     border-image: linear-gradient(to bottom, #e15550, #ef7f55);
     border-image-slice: 1;
     color: #443b49;
@@ -36,13 +30,7 @@
     border-left-width: 10px;
     border-left-style: solid;
     -o-border-image: linear-gradient(to bottom, #e15550, #ef7f55);
-    border-image: -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(#e15550),
-      to(#ef7f55)
-    );
+    border-image: -webkit-gradient(linear, left top, left bottom, from(#e15550), to(#ef7f55));
     border-image: linear-gradient(to bottom, #e15550, #ef7f55);
     border-image-slice: 1;
     color: #443b49;
@@ -91,13 +79,7 @@
   &-enter,
   &-lock,
   &-bksp {
-    background: -webkit-gradient(
-      linear,
-      left top,
-      right top,
-      from(#e15550),
-      to(#ef7f55)
-    ) !important;
+    background: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55)) !important;
     background: linear-gradient(to right, #e15550, #ef7f55) !important;
     & > span {
       color: white !important;
@@ -111,4 +93,67 @@
 
 .is-poppins {
   font-family: "Poppins", sans-serif;
+}
+
+//Vue carousel
+.VueCarousel {
+  &-wrapper {
+    max-width: 700vw;
+    overflow-x: scroll !important;
+    padding-bottom: 30px;
+    &::-webkit-scrollbar {
+      height: 6px !important;
+    }
+    &::-webkit-scrollbar-track {
+      background: #605967;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #e76852;
+    }
+  }
+  &-dot {
+    &-container {
+      display: -webkit-inline-box !important;
+      display: -ms-inline-flexbox !important;
+      display: inline-flex !important;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+    &--active {
+      height: 10px !important;
+    }
+    padding: 0 !important;
+    margin-top: 0 !important;
+    width: 80px !important;
+    border-radius: 0 !important;
+    height: 4px !important;
+  }
+}
+
+.success {
+  background-color: #edf0f8;
+  -webkit-box-shadow: 0 3px 10px rgba(#000, 0.4);
+  box-shadow: 0 3px 10px rgba(#000, 0.4);
+  padding: 45px 88px;
+  width: 50vw;
+  height: 250px;
+  position: absolute;
+  left: 25vw;
+  color: #443b49;
+  font-size: 20px;
+  border-bottom-width: 10px;
+  border-bottom-style: solid;
+  -o-border-image: linear-gradient(to right, #e15550, #ef7f55);
+  border-image: -webkit-gradient(linear, left top, right top, from(#e15550), to(#ef7f55));
+  border-image: linear-gradient(to right, #e15550, #ef7f55);
+  border-image-slice: 1;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  -webkit-transform: translateY(50%);
+  transform: translateY(50%);
+  &.active {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }

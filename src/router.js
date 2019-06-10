@@ -53,6 +53,16 @@ const NewGuest = resolve => {
   );
 };
 
+const Success = resolve => {
+  require.ensure(
+    ["./components/Success.vue"],
+    () => {
+      resolve(require("./components/Success.vue"));
+    },
+    "success"
+  );
+};
+
 const Camera = resolve => {
   require.ensure(
     ["./components/Camera.vue"],
@@ -82,7 +92,8 @@ export default new Router({
         { path: "scheduled", component: Scheduled },
         { path: "nonscheduled", component: NonScheduled },
         { path: "newguest", component: NewGuest },
-        { path: "camera", component: Camera }
+        { path: "camera", component: Camera },
+        { path: "success", component: Success }
       ]
     },
     { path: "*", redirect: "/" }

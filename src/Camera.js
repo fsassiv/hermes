@@ -23,10 +23,14 @@ class Camera {
 
   //Camera feed (viewfinder) off
   switch_off() {
-    //pause video node
-    this.video_node.pause();
-    //Stop media stream
-    this.stream.getTracks()[0].stop();
+    try {
+      //pause video node
+      this.video_node.pause();
+      //Stop media stream
+      this.stream.getTracks()[0].stop();
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   //Capture phto from camera steam

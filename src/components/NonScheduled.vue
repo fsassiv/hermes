@@ -5,6 +5,8 @@
       :scrollPerPage="false"
       :per-page="3"
       :paginationEnabled="false"
+      :paginationColor="'#605967'"
+      :paginationActiveColor="'#e76852'"
       v-if="company.length!=0"
       class="dep__carousel"
     >

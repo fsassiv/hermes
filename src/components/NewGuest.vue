@@ -120,8 +120,6 @@ export default {
         this.textareaData += lastChar;
         this.keyboard.setInput(this.textareaData);
       }
-      console.log("Input: " + this.inputData);
-      console.log("Textarea: " + this.textareaData);
     }
   }
 };
