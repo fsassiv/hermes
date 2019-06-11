@@ -7,7 +7,14 @@
 </template>
 <script>
 import { async } from "q";
-export default {};
+export default {
+  created() {
+    this.detectClient();
+  },
+  mounted() {
+    this.$nextTick(this.setFullScreen("html"));
+  }
+};
 </script>
 <style>
 .slide-leave-active {
