@@ -1,8 +1,8 @@
 {
   "name": "Hermes",
   "short_name": "Hermes",
-  "theme_color": "#e76852",
-  "background_color": "#e76852",
+  "theme_color": "#4b2f24",
+  "background_color": "#4b2f24",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",

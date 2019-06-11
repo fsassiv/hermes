@@ -79,7 +79,12 @@ if (process.env.NODE_ENV === "production") {
     new SWPrecache({
       cacheId: "dc-covers",
       filepath: "service-worker.js",
-      staticFileGlobs: ["index.html", "manifest.json", "public/*.{js,css}"],
+      staticFileGlobs: [
+        "index.html",
+        "manifest.json",
+        "public/*.js",
+        "public/css/*.css"
+      ],
       stripPrefix: "/"
     })
   ]);

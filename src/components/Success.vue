@@ -27,7 +27,7 @@ export default {
       }, 100);
 
       setTimeout(() => {
-        this.$router.go("/");
+        this.$router.go("home");
       }, 6000);
     }
   }

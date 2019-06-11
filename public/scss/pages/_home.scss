@@ -41,8 +41,9 @@
       top: 15%;
       font-weight: bold;
       font-size: 90px;
-      line-height: 100px;
+      line-height: 90px;
       z-index: 999;
+      pointer-events: none;
       @include toHD {
         font-size: 100px;
         line-height: 120px;
@@ -163,7 +164,13 @@
         width: calc(100% / 2.5);
         &::before {
           opacity: 0.8;
-          background: -webkit-gradient(linear, left top, left bottom, from(#d5120f), to(#f4711b));
+          background: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(#d5120f),
+            to(#f4711b)
+          );
           background: linear-gradient(to bottom, #d5120f, #f4711b);
         }
         @include fullHD {

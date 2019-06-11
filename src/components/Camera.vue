@@ -13,7 +13,11 @@
         class="camera__btn camera__btn-take-photo is-poppins"
         @click="take_photo"
       >Tirar outra foto</button>
-      <button class="camera__btn camera__btn-go is-poppins" @click="handleClick">Prosseguir</button>
+      <button
+        class="camera__btn camera__btn-go is-poppins"
+        :disabled="photo==''"
+        @click="handleClick"
+      >Prosseguir</button>
     </div>
   </div>
 </template>
