@@ -8,9 +8,6 @@
 <script>
 import { async } from "q";
 export default {
-  created() {
-    this.detectClient();
-  },
   mounted() {
     this.$nextTick(this.setFullScreen("html"));
   }

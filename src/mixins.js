@@ -15,7 +15,7 @@ export default Vue.mixin({
         platform.indexOf("Mac") !== -1 ||
         platform.indexOf("Linu") !== -1
       ) {
-        console.log("Desktop");
+        console.log("Desktop detected");
         //Desktop detected
         let userConfirm = confirm("Iniciar aplicação em modo Tela Cheia?");
         if (userConfirm) {
@@ -38,7 +38,7 @@ export default Vue.mixin({
           }
         }
       } else {
-        console.log("Mobile");
+        console.log("Mobile detected");
       }
     },
     detectClient() {
