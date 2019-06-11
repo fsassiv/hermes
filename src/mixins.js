@@ -9,25 +9,36 @@ export default Vue.mixin({
       document.querySelector(`${className}`).classList.add("app__hide");
     },
     setFullScreen(element) {
-      let userConfirm = confirm("Iniciar aplicação em modo Tela Cheia?");
-      if (userConfirm) {
-        let html = document.querySelector(`${element}`);
-        try {
-          if (html.requestFullscreen) {
-            html.requestFullscreen();
-          } else if (html.mozRequestFullScreen) {
-            /* Firefox */
-            html.mozRequestFullScreen();
-          } else if (html.webkitRequestFullscreen) {
-            /* Chrome, Safari and Opera */
-            html.webkitRequestFullscreen();
-          } else if (html.msRequestFullscreen) {
-            /* IE/Edge */
-            html.msRequestFullscreen();
+      let platform = this.detectClient();
+      if (
+        platform.indexOf("Win") !== -1 ||
+        platform.indexOf("Mac") !== -1 ||
+        platform.indexOf("Linu") !== -1
+      ) {
+        console.log("Desktop");
+        //Desktop detected
+        let userConfirm = confirm("Iniciar aplicação em modo Tela Cheia?");
+        if (userConfirm) {
+          let html = document.querySelector(`${element}`);
+          try {
+            if (html.requestFullscreen) {
+              html.requestFullscreen();
+            } else if (html.mozRequestFullScreen) {
+              /* Firefox */
+              html.mozRequestFullScreen();
+            } else if (html.webkitRequestFullscreen) {
+              /* Chrome, Safari and Opera */
+              html.webkitRequestFullscreen();
+            } else if (html.msRequestFullscreen) {
+              /* IE/Edge */
+              html.msRequestFullscreen();
+            }
+          } catch (err) {
+            console.error;
           }
-        } catch (err) {
-          console.error;
         }
+      } else {
+        console.log("Mobile");
       }
     },
     detectClient() {
@@ -36,7 +47,7 @@ export default Vue.mixin({
        * Source: http://jsfiddle.net/ChristianL/AVyND/
        * (C) viazenetti GmbH (Christian Ludwig)
        */
-      (function(window) {
+      return (function(window) {
         {
           var os, clientStrings;
           var nVer = navigator.appVersion;
@@ -117,7 +128,8 @@ export default Vue.mixin({
         };
 
         // Change to element with ID to placehold
-        console.log(window.jscd.os + " " + window.jscd.osVersion);
+        // console.log(window.jscd.os + " " + window.jscd.osVersion);
+        return window.jscd.os;
       })(this);
     }
   }
