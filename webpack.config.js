@@ -83,7 +83,8 @@ if (process.env.NODE_ENV === "production") {
         "index.html",
         "manifest.json",
         "public/*.js",
-        "public/css/*.css"
+        "public/css/*.css",
+        "public/img/**/*.{png,jpg,jpeg,svg}"
       ],
       stripPrefix: "/"
     })
