@@ -34,9 +34,9 @@
         </g>
       </svg>
       <div class="home-sidemenu__banner">
-        <h1 class="home-sidemenu__title is-poppins">Recepção Virtual</h1>
+        <h1 class="home-sidemenu__title is-poppins" :class="{active:fetchOk}">Recepção Virtual</h1>
       </div>
-      <div class="home-sidemenu__content">
+      <div class="home-sidemenu__content" :class="{active:fetchOk}">
         <p class="home-sidemenu__text">
           Seja bem vindo a recepção virtual Hermes, para prosseguir você só
           precisa selecionar a empresa a qual tem algo a tratar
@@ -52,12 +52,8 @@
           class="home-content__screen-animation animate"
           :style="{backgroundImage:backgroundImg}"
         ></div>
-        <!-- OPTIONS -->
-        <!-- <div class="home-panel">
-          <app-panel @loadPanel="loadPanel" v-for="panel in panels" :key="panel._id" :data="panel"></app-panel>
-        </div>-->
       </div>
-      <div class="home-panel">
+      <div class="home-panel" :class="{active:fetchOk}">
         <app-panel @loadPanel="loadPanel" v-for="panel in panels" :key="panel._id" :data="panel"></app-panel>
       </div>
     </main>
@@ -73,26 +69,35 @@ export default {
   data() {
     return {
       panels: [],
-      backgroundImg: ""
+      backgroundImg: "",
+      fetchOk: false
     };
   },
   created() {
-    // fetch("http://35.240.68.142:3333/api/v1/companies")
     fetch("https://hermes-ws.herokuapp.com/api/v1/companies")
       .then(data => {
         return data.json();
       })
       .then(data => {
         this.panels = data;
+        sessionStorage.setItem("companies", JSON.stringify(data));
       })
       .then(data => {
+        setTimeout(() => {
+          // this.fetchOk = true;
+        }, 100);
+
         this.backgroundImg = `url(public/img/${this.panels[0].background})`;
         this.$store.commit("setPageBackground", this.backgroundImg);
       })
       .catch(err => {
-        console.log("Failed to fetch");
+        this.panels = JSON.parse(sessionStorage.getItem("companies"));
+        console.log("Failed to fetch data");
+        console.log("Fall back to local");
         console.error(err);
+        // this.fetchOk = false;
       });
+    this.fetchOk = true;
   },
   methods: {
     loadPanel({ _id, backgroundImg }) {
@@ -108,12 +113,6 @@ export default {
         }
       }
     }
-    // addActive: elem => {
-    //   elem.classList.add("active");
-    // },
-    // removeActive: elem => {
-    //   elem.classList.remove("active");
-    // }
   },
   components: {
     appPanel: Panel

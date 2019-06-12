@@ -7,6 +7,7 @@
 </template>
 <script>
 import { async } from "q";
+
 export default {
   mounted() {
     this.$nextTick(this.setFullScreen("html"));

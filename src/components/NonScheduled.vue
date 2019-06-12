@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       company: [],
-      activeIndex: 0,
+      // activeIndex: 0,
       selectedDep: ""
     };
   },
@@ -56,8 +56,12 @@ export default {
         this.company = deps.filter(dep => {
           return dep._id == this.$store.getters.getCompany._id;
         });
+        if (this.company.length !== 0) {
+          sessionStorage.setItem("deps", JSON.stringify(this.company));
+        }
       })
       .catch(err => {
+        this.company = JSON.parse(sessionStorage.getItem("deps"));
         console.log(err);
       });
   },

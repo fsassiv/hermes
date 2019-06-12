@@ -9,3 +9,10 @@
     @content;
   }
 }
+
+@mixin homeTransition {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
