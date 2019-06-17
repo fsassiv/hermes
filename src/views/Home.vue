@@ -95,7 +95,7 @@ export default {
         console.log("Failed to fetch data");
         console.log("Fall back to local");
         console.error(err);
-        // this.fetchOk = false;
+        this.fetchOk = true;
       });
     // this.fetchOk = true;
   },
