@@ -40,9 +40,13 @@ export default new Vuex.Store({
     },
     company: {
       _id: 0
-    }
+    },
+    appRestart: false
   },
   getters: {
+    getAppRestart: ({ appRestart }) => {
+      return appRestart;
+    },
     getCurrentPage: ({ currentPage }) => {
       return currentPage;
     },
@@ -57,6 +61,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setAppRestart: (state, newStatus) => {
+      state.appRestart = newStatus;
+    },
     setCurrentPage: (state, newPage) => {
       state.currentPage = newPage;
     },

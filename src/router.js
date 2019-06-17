@@ -75,7 +75,7 @@ const Camera = resolve => {
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
@@ -88,14 +88,16 @@ export default new Router({
       path: "/iden",
       component: Iden,
       children: [
-        { path: "", name: "path", component: Path },
-        { path: "scheduled", component: Scheduled },
-        { path: "nonscheduled", component: NonScheduled },
-        { path: "newguest", component: NewGuest },
-        { path: "camera", component: Camera },
-        { path: "success", component: Success }
+        { path: "", name: "iden", component: Path },
+        { path: "scheduled", name: "scheduled", component: Scheduled },
+        { path: "nonscheduled", name: "nonscheduled", component: NonScheduled },
+        { path: "newguest", name: "newguest", component: NewGuest },
+        { path: "camera", name: "camera", component: Camera },
+        { path: "success", name: "success", component: Success }
       ]
     },
     { path: "*", redirect: "/" }
   ]
 });
+
+export default router;

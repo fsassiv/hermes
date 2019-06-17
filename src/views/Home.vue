@@ -84,7 +84,7 @@ export default {
       })
       .then(data => {
         setTimeout(() => {
-          // this.fetchOk = true;
+          this.fetchOk = true;
         }, 100);
 
         this.backgroundImg = `url(public/img/${this.panels[0].background})`;
@@ -97,7 +97,7 @@ export default {
         console.error(err);
         // this.fetchOk = false;
       });
-    this.fetchOk = true;
+    // this.fetchOk = true;
   },
   methods: {
     loadPanel({ _id, backgroundImg }) {

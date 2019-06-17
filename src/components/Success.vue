@@ -6,6 +6,7 @@
 </template>
 <script>
 export default {
+  name: "success",
   data() {
     return {
       active: false

@@ -1,6 +1,9 @@
 <template>
   <div class="camera">
     <div class="camera__frame">
+      <div class="camera__frame-overlay">
+        <span class="camera__frame-counter">{{camera_counter}}</span>
+      </div>
       <div class="camera__error" :class="{active:!supported}">
         <p class="camera__error-text">Acesso à câmera não suportado/permitido por este despositivo.</p>
       </div>
@@ -11,7 +14,7 @@
     <div class="camera__ctrl-box">
       <button
         class="camera__btn camera__btn-take-photo is-poppins"
-        @click="take_photo"
+        @click="countDown"
       >Tirar outra foto</button>
       <button
         class="camera__btn camera__btn-go is-poppins"
@@ -30,7 +33,8 @@ export default {
       supported: true,
       camera: "",
       photo: "",
-      imgElem: ""
+      imgElem: "",
+      camera_counter: ""
     };
   },
   mounted() {
@@ -48,18 +52,29 @@ export default {
       this.imgElem = document.querySelector(".camera__img");
       //Set camera element
       this.camera = new Camera(document.querySelector("#player"));
-    });
 
-    //Auto init camera
-    setTimeout(() => {
+      //Auto init camera
       this.camera.switch_on();
-    }, 3000);
+      this.countDown();
+    });
   },
   beforeDestroy() {
     //Turn off the camera
     this.camera.switch_off();
   },
   methods: {
+    countDown: function() {
+      this.camera_counter = 5;
+      this.photo = "";
+      this.imgElem.classList.remove("active");
+      let counter = setInterval(() => {
+        this.camera_counter--;
+        if (this.camera_counter == 0) {
+          this.take_photo();
+          clearInterval(counter);
+        }
+      }, 1000);
+    },
     take_photo: function() {
       if (this.photo == "") {
         this.photo = this.camera.take_photo();

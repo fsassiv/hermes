@@ -39,6 +39,7 @@ import Logo from "../assets/logo.vue";
 import { Carousel, Slide } from "vue-carousel";
 
 export default {
+  name: "nonscheduled",
   data() {
     return {
       company: [],

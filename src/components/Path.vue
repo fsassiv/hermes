@@ -11,6 +11,7 @@
 </template>
 <script>
 export default {
+  name: "pathComponent",
   data() {
     return {
       active: false,
